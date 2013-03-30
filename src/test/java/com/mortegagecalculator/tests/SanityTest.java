@@ -60,4 +60,17 @@ public class SanityTest extends TestngAnnotationsTest{
 		Assert.assertEquals(0, cm.total_payments(read.readData("Total_payments3")));
 
 	}
+@Test(testName = "TC4", description = "Verify MonthlyPayment and total Payment for 0.1%", timeOut = 300000, enabled = true, groups = { "tc3","sanity" })
+	public void tc4(){
+		try {
+			cm.calcualte_LoanPayMent_amount(read.readData("Loan_Amount2"), read.readData("Interest_Percentage2"));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Assert.assertEquals(0, cm.monthly_pament(read.readData("Monthly_payment3")));
+		Assert.assertEquals(0, cm.total_payments(read.readData("Total_payments3")));
+
+	}
 }
